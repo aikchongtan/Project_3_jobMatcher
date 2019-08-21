@@ -21,7 +21,7 @@ Payment_type.create(name: "Pay per project")
 
 Post_visibility.destroy_all
 Post_visibility.create(name: "Anyone")
-Post_visibilities.create(name: "Only Registered User")
+Post_visibility.create(name: "Only Registered User")
 
 Project_timeline.destroy_all
 Project_timeline.create(name: "Less than one month")
@@ -58,26 +58,21 @@ Freelancer_expertise.create(expertise_detail_id: "14", freelancer_id:"1")
 
 Job_match.destroy_all
 Job_match.create(
-    job_posting_id: "1", 
-    requester_type: "Hirer", 
+    job_posting_id: "1",
+    requester_type: "Hirer",
     approval_status: "0")
 
 
 
 Job_match_freelancer.destroy_all
 Job_match_freelancer.create(
-    job_match_id: "1", 
-    freelancer_id: "1", 
-    gross_amount: "300", 
-    service_fee: "60", 
+    job_match_id: "1",
+    freelancer_id: "1",
+    gross_amount: "300",
+    service_fee: "60",
     net_amount: "240")
 
 
 Job_posting_expertise.destroy_all
 Job_posting_expertise.create(expertise_detail_id: "7", job_posting_id: "1")
 Job_posting_expertise.create(expertise_detail_id: "13", job_posting_id: "1")
-
-
-
-
-
