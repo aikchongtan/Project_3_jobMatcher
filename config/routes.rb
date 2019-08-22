@@ -1,33 +1,18 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root 'posts#index'
+  #root page
+  root 'freelancers#register_expertise'
 
-  # Create - Post
-  get '/posts/new' => 'posts#new', as: 'new_post'
-  post '/posts' => 'posts#create'
+  #http://localhost:3000/freelancers/register_expertise
+  get '/freelancers/register_expertise' => 'freelancers#register_expertise', as: 'freelancer_register_expertise'
 
-  # Show - Post
-  get '/posts/:id' => 'posts#show' , as: 'post'
+  #http://localhost:3000/create_expertise
+  post '/freelancer_create_expertise' => 'freelancers#create_expertise'
 
-  # Edit - Post
-  get '/posts/:id/edit' => 'posts#edit', as: 'edit_post'
-  patch '/posts/:id' => 'posts#update'
+  get '/freelancers/register_profile' => 'freelancers#register_profile', as: 'freelancer_register_profile'
+  post '/freelancer_create_profile' => 'freelancers#create_profile'
+  
 
-  # Delete  - Post
-  delete '/posts/:id' => 'posts#destroy'
+    # Show - Freelancer
+    get '/freelancers/:id' => 'freelancers#show' , as: 'freelancer'
 
-
-   # Create - Video
-   get '/videos/new' => 'videos#new', as: 'new_video'
-   post '/videos' => 'videos#create'
- 
-   # Show - Video
-   get '/videos/:id' => 'videos#show' , as: 'video'
- 
-   # Edit - Video
-   get '/videos/:id/edit' => 'videos#edit', as: 'edit_video'
-   patch '/videos/:id' => 'videos#update'
- 
-   # Delete  - Video
-   delete '/videos/:id' => 'videos#destroy'
 end

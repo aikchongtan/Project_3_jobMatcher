@@ -1,6 +1,6 @@
 class Freelancer < ActiveRecord::Base
-    belongs_to :job_category
-    belongs_to :experience_level_hourly_rate
-    belongs_to :payment_type
-    belongs_to :country
+    has_many :job_category
+    has_many :experience_level_hourly_rate
+    has_many :payment_type
+    has_many :country
 end
