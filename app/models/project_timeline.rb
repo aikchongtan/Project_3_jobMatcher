@@ -1,2 +1,2 @@
-class Project_timeline < ActiveRecord::Base
+class ProjectTimeline < ActiveRecord::Base
 end

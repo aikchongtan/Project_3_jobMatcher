@@ -1,3 +1,3 @@
-class Expertise_detail < ActiveRecord::Base
+class ExpertiseDetail < ActiveRecord::Base
     belongs_to :expertise
 end

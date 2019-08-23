@@ -1,2 +1,2 @@
-class Save_my_jobposting < ActiveRecord::Base
+class SaveMyJobposting < ActiveRecord::Base
 end

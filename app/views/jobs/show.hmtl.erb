@@ -1,0 +1,57 @@
+<nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand" href="/">Job Matcher</a>
+  <form class="form-inline">
+    <a class="btn btn-outline-primary" href="users/sign_in" role="button">
+    Log In
+    </a>
+    <div style="padding-left: 10px;">
+      <a class="btn btn-outline-success" href="users/sign_up" role="button">
+      Sign Up
+      </a>
+    </div>
+    <div style="padding-left: 10px;">
+      <a class="btn btn-outline-danger" rel="nofollow" data-method="delete" href="users/sign_out" role="button">
+      Log Out
+      </a>
+    </div>
+  </form>
+</nav>
+
+</br>
+<div class="row">
+
+    <h1>Here is the job you were looking for</h1>
+
+    <% @jobs_posting.each do |jobs_posting| %>
+
+    <h2>
+        Job Post Title: <strong> <%= @job_postings.job_post_title %> </strong>
+    </h2>
+
+    <p>
+      <strong>Job Post Description:</strong>
+      <%= @job_postings.job_description %>
+    </p>
+
+    <p>
+      <strong>Project Start Date:</strong>
+      <%= @job_postings.project_start_date %>
+    </p>
+
+    <p>
+      <strong>Project Type:</strong>
+      <%= @job_postings.project_type_id.name %>
+    </p>
+
+    <p>
+      <strong>Job Category:</strong>
+      <%= @job_postings.job_category_id.name %>
+    </p>
+
+    <p>
+      <strong>Job post title:</strong>
+      <%= @job_postings.experience_level_hourly_rate_id.name %>
+    </p>
+
+    <% end %>
+</div>

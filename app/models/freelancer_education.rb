@@ -1,3 +1,3 @@
-class Freelancer_education < ActiveRecord::Base
+class FreelancerEducation < ActiveRecord::Base
     has_many :freelancer
 end

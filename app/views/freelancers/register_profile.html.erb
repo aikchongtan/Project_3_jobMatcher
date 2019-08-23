@@ -1,3 +1,21 @@
+<nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand" href="/">Job Matcher</a>
+  <form class="form-inline">
+    <a class="btn btn-outline-primary" href="users/sign_in" role="button">
+    Log In
+    </a>
+    <div style="padding-left: 10px;">
+      <a class="btn btn-outline-success" href="users/sign_up" role="button">
+      Sign Up
+      </a>
+    </div>
+    <div style="padding-left: 10px;">
+      <a class="btn btn-outline-danger" rel="nofollow" data-method="delete" href="users/sign_out" role="button">
+      Log Out
+      </a>
+    </div>
+  </form>
+</nav>
 
 <h1>Create Freelance </h1>
 <h3>Register Profile</h3>
@@ -5,7 +23,7 @@
 <%= form_with scope: :freelancer, url: freelancer_create_profile_path, local: true do |form| %>
   <p>
     <%= form.label :'Add your professional title' %><br>
-    
+
    <%= form.text_field :professional_title %>
   </p>
 
@@ -20,7 +38,3 @@
 
   </p>
 <% end %>
-
-
-
-

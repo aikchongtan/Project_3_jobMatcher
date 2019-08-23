@@ -1,2 +1,2 @@
-class Project_type < ActiveRecord::Base
+class ProjectType < ActiveRecord::Base
 end

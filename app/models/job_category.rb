@@ -1,3 +1,3 @@
-class Job_category < ActiveRecord::Base
+class JobCategory < ActiveRecord::Base
     belongs_to :freelancer
 end

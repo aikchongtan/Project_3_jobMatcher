@@ -1,3 +1,3 @@
-class Payment_type < ActiveRecord::Base
+class PaymentType < ActiveRecord::Base
     belongs_to :freelancer
 end

@@ -1,3 +1,3 @@
-class Experience_level_hourly_rate < ActiveRecord::Base
+class ExperienceLevelHourlyRate < ActiveRecord::Base
     belongs_to :freelancer
 end

@@ -9,7 +9,7 @@
 # On Windows:
 #   gem install pg
 #       Choose the win32 build.
-#       Install PostgreSQL and put its /bin directory on your path.
+#       Install PostgreSQL and put its /bin directory on your path.db
 #
 # Configure Using Gemfile
 # gem 'pg'
@@ -25,8 +25,8 @@ development:
   <<: *default
   database: jobmatcher_development
   host : localhost
-  user: ghostshiphost
-  password: Laser123
+  user: postgres
+  password: passfoot
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -62,8 +62,8 @@ test:
   <<: *default
   database: jobmatcher_test
   host : localhost
-  user: ghostshiphost
-  password: Laser123
+  user: postgres
+  password: passfoot
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -88,5 +88,5 @@ production:
   <<: *default
   database: jobmatcher_production
   host : localhost
-  user: ghostshiphost
-  password: Laser123
+  user: postgres
+  password: passfoot

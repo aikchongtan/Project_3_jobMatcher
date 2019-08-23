@@ -1,4 +1,4 @@
-class Job_posting  < ActiveRecord::Base
+class JobPosting  < ActiveRecord::Base
     belongs_to :post_visibility
     belongs_to :payment_type
     belongs_to :project_timeline

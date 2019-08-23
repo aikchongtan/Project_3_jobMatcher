@@ -1,2 +1,2 @@
-class No_of_freelancer < ActiveRecord::Base
+class NoOfFreelancer < ActiveRecord::Base
 end

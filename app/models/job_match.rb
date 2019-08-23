@@ -1,3 +1,3 @@
-class Job_match < ActiveRecord::Base
+class JobMatch < ActiveRecord::Base
     has_many :job_posting
 end
