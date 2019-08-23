@@ -1,51 +1,58 @@
 class FreelancersController < ApplicationController
 
-    @id = 3
-    def index
-
-    end
 
     def show
-      @freelancer = Freelancer.find_by(id: 4)
+      @freelancer = Freelancer.find_by(params[:user_id])
+
     end
 
     def register_expertise
-        @freelancer = Freelancer.find_by(id: 4)
+        @freelancer = Freelancer.find_by(params[:id])
         @job_categories = JobCategory.all
         @experience_levels = ExperienceLevelHourlyRate.all
+        @payment_type = PaymentType.all
+        @expertise_details = ExpertiseDetail.all
+
+
       end
 
     def create_expertise
         #save expertise data
-        @freelancer = Freelancer.find_by(id: 4)
+        @freelancer = Freelancer.find_by(params[:user_id])
 
         if !@freelancer.nil?
             @freelancer.update(freelancer_params)
         else
             @freelancer = Freelancer.new(freelancer_params)
+            @freelancer.user_id = current_user.id
             @freelancer.save
         end
 
-        redirect_to freelancerRegisterProfile_path
+        redirect_to freelancer_register_profile_path
     end
 
     def register_profile
-      @freelancer = Freelancer.find_by(id: 4)
-        print("register_profile------------")
-        print(@freelancer)
+       p "======="
+      p current_user.id
+      # @freelancer = Freelancer.find(params[:id])
+      #   print("register_profile------------")
+      #   print(@freelancer)
+      # @freelancer = Freelancer_education.all
     end
 
     def create_profile
         #save profile data
-      @freelancer = Freelancer.find_by(id: 4)
-      if !@freelancer.nil?
-          @freelancer.update(freelancer_params)
-      else
+      # @freelancer = Freelancer.find(params[:user_id])
+      # if !@freelancer.nil?
+      #     @freelancer.update(freelancer_params)
+      # else
           @freelancer = Freelancer.new(freelancer_params)
-          @freelancer.save
-      end
 
-        redirect_to freelancer_path(@freelancer)
+          @freelancer.user_id = current_user.id
+          @freelancer.save
+
+
+        redirect_to @freelancer
     end
 
 
@@ -54,8 +61,7 @@ class FreelancersController < ApplicationController
     end
     def create
 
-
-      @freelancers = Job_category.new(name: params[:freelancers])
+      @freelancers = JobCategory.new(name: params[:freelancers])
       @freelancers.save
       render plain: params[:freelancers].inspect
 
@@ -73,5 +79,5 @@ class FreelancersController < ApplicationController
 
   private
     def freelancer_params
-      params.require(:freelancer).permit(:job_category_id, :experience_level_hourly_rate_id, :professional_title, :professional_overview)
+      params.require(:freelancer).permit(:job_category_id, :experience_level_hourly_rate_id, :professional_title, :professional_overview, :start_work_date, :payment_type_id, :expertise_detail_id)
     end

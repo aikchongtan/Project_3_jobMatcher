@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_22_131341) do
+ActiveRecord::Schema.define(version: 2019_08_23_071454) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "countries", force: :cascade do |t|
+  create_table "countrys", force: :cascade do |t|
     t.string "name"
   end
 
@@ -55,10 +55,12 @@ ActiveRecord::Schema.define(version: 2019_08_22_131341) do
     t.bigint "experience_level_hourly_rate_id"
     t.bigint "payment_type_id"
     t.bigint "country_id"
+    t.bigint "user_id"
     t.index ["country_id"], name: "index_freelancers_on_country_id"
     t.index ["experience_level_hourly_rate_id"], name: "index_freelancers_on_experience_level_hourly_rate_id"
     t.index ["job_category_id"], name: "index_freelancers_on_job_category_id"
     t.index ["payment_type_id"], name: "index_freelancers_on_payment_type_id"
+    t.index ["user_id"], name: "index_freelancers_on_user_id"
   end
 
   create_table "job_categories", force: :cascade do |t|
@@ -158,4 +160,5 @@ ActiveRecord::Schema.define(version: 2019_08_22_131341) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "freelancers", "users"
 end

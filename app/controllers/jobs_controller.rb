@@ -22,6 +22,7 @@ before_action :authenticate_user!, :except => [ :show ]
         @expertises =  Expertise.all
         @payment_types = PaymentType.all
         @project_timelines = ProjectTimeline.all
+        @countrys = Country.all
 
   end
 

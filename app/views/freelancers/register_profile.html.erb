@@ -1,40 +1,62 @@
-<nav class="navbar navbar-light bg-light">
-  <a class="navbar-brand" href="/">Job Matcher</a>
-  <form class="form-inline">
-    <a class="btn btn-outline-primary" href="users/sign_in" role="button">
-    Log In
-    </a>
-    <div style="padding-left: 10px;">
-      <a class="btn btn-outline-success" href="users/sign_up" role="button">
-      Sign Up
-      </a>
-    </div>
-    <div style="padding-left: 10px;">
-      <a class="btn btn-outline-danger" rel="nofollow" data-method="delete" href="users/sign_out" role="button">
-      Log Out
-      </a>
-    </div>
-  </form>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Logo | Freelancer View</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Profile <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Job Repository</a>
+      </li>
+    </ul>
+  </div>
 </nav>
 
-<h1>Create Freelance </h1>
-<h3>Register Profile</h3>
 
-<%= form_with scope: :freelancer, url: freelancer_create_profile_path, local: true do |form| %>
-  <p>
-    <%= form.label :'Add your professional title' %><br>
+<div class ="container">
 
-   <%= form.text_field :professional_title %>
-  </p>
+	<div class="row">
 
-  <p>
-    <%= form.label :'Write your professional overview'%><br>
-     <%= form.text_area :professional_overview %>
-  </p>
+		<div class="col-4">
+			<ul style="list-style-type:circle;">
+					<li><strong>Basic Profile</strong></li>
+					<li>Expertise</li>
+			</ul>
+		</div>
 
-  <p>
-    <%= form.submit value="Submit"%>
-    <%= link_to 'Back', freelancer_register_expertise_path %>
+		<div class="col-8">
+						<%= form_with scope: :freelancer, url: freelancer_create_profile_path, local: true do |form| %>
 
-  </p>
+						  <p>
+						    <%= form.label :'Add your professional title' %><br>
+						    <%= form.text_field :professional_title %>
+						  </p>
+
+						  <p>
+						    <%= form.label :'Write your professional overview'%><br>
+						     <%= form.text_area :professional_overview, size: "60x12" %>
+						  </p>
+
+						  <p>
+						    <%= form.label :'When in your available date?'%><br>
+						     <%= form.text_field :start_work_date  %>
+						  </p>
+
+						  <p>
+						    <%= form.label :'Highest Education'%><br>
+						     <%= form.text_field :tietiary  %>
+						  </p>
+
+						  <p>
+						    <%= form.submit value="Submit"%>
+						    <%= link_to 'Back', freelancer_register_expertise_path %>
+						  </p>
+		</div>
+	</div>
+</div>
+
+
 <% end %>
