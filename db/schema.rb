@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_22_131341) do
+ActiveRecord::Schema.define(version: 2019_08_23_032633) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -100,6 +100,7 @@ ActiveRecord::Schema.define(version: 2019_08_22_131341) do
     t.bigint "job_category_id"
     t.bigint "no_of_freelancer_id"
     t.bigint "experience_level_hourly_rate_id"
+    t.bigint "user_id"
     t.index ["experience_level_hourly_rate_id"], name: "index_job_postings_on_experience_level_hourly_rate_id"
     t.index ["job_category_id"], name: "index_job_postings_on_job_category_id"
     t.index ["no_of_freelancer_id"], name: "index_job_postings_on_no_of_freelancer_id"

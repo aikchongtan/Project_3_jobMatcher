@@ -9,7 +9,7 @@ before_action :authenticate_user!, :except => [ :show ]
 
   def show
         #Find job posting by ID.
-        @job_posting = JobPosting.find_by(:id)
+        @job_posting = JobPosting.find_by(params[:id])
   end
 
   def new
@@ -18,29 +18,31 @@ before_action :authenticate_user!, :except => [ :show ]
         @project_types = ProjectType.all
         @post_visibilities = PostVisibility.all
         @no_of_freelancers = NoOfFreelancer.all
-        @expertise_details = ExpertiseDetail.all
         @expertises =  Expertise.all
+        @expertise_details = ExpertiseDetail.all
         @payment_types = PaymentType.all
         @project_timelines = ProjectTimeline.all
 
   end
 
-
-
-
   def create
         #Create a new job posting.
-        @job_posting = JobPosting.find_by(:id)
+        # @job_posting = JobPosting.find_by(current_user.id)
 
-        if !@job_posting.nil?
-            @job_posting.update(job_posting_params)
-        else
             @job_posting = JobPosting.new(job_posting_params)
+
+            @job_posting.user_id = current_user.id
             @job_posting.save
-        end
+            # render plain: params[:job].inspect
+
+            redirect_to jobs_path(@jobs)
+
   end
 
   def edit
+            if !@job_posting.nil?
+            @job_posting.update(job_posting_params)
+        end
   end
 
   def update
@@ -51,7 +53,7 @@ before_action :authenticate_user!, :except => [ :show ]
 
   private
   def job_posting_params
-      params.require(:job_posting).permit(:job_posting_title, :job_category_id,:job_description, :project_type_id, :post_visibility_id, :no_of_freelancer_id, :experience, :expertise_id,:payment_type_id, :project_timeline_id => [])
+      params.require(:job).permit(:job_post_title, :job_category_id,:job_description, :project_type_id, :post_visibility_id, :no_of_freelancer_id, :payment_type_id, :project_timeline_id, :experience_level_hourly_rate_id)
   end
 
 end

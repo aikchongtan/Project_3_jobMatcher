@@ -6,5 +6,5 @@ class JobPosting  < ActiveRecord::Base
     belongs_to :job_category
     belongs_to :no_of_freelancer
     belongs_to :experience_level_hourly_rate
-    belongs_to :job_match
+    belongs_to :user
 end

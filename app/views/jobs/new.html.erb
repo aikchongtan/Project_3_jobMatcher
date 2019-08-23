@@ -75,7 +75,7 @@
         <%= f.label :what_type_of_project_do_you_have %><br />
 
         <% @project_types.each do |project_type| %>
-            <%= f.radio_button :project_type_id, project_type.name %>
+            <%= f.radio_button :project_type_id, project_type.id %>
             <%= f.label :project_type, project_type.name %>
         <% end %>
       </div>
@@ -84,7 +84,7 @@
         <%= f.label :who_can_see_your_job %><br />
 
         <% @post_visibilities.each do |post_visibility| %>
-            <%= f.radio_button :post_visibility_id, post_visibility.name %>
+            <%= f.radio_button :post_visibility_id, post_visibility.id %>
             <%= f.label :post_visibility, post_visibility.name %>
         <% end %>
       </div>
@@ -93,7 +93,7 @@
         <%= f.label :how_many_freelancers_do_you_need %><br />
 
         <% @no_of_freelancers.each do |no_of_freelancer| %>
-            <%= f.radio_button :no_of_freelancer_id, no_of_freelancer.name %>
+            <%= f.radio_button :no_of_freelancer_id, no_of_freelancer.id %>
             <%= f.label :no_of_freelancer, no_of_freelancer.name %>
         <% end %>
       </div>
@@ -117,8 +117,9 @@
 
         <h2>Experience</h2>
         <p>Step 3 of 5</p>
+        <input type="hidden" name="job[experience_level_hourly_rate_id]" value="1" />
 
-      <div class="form-group">
+<!--       <div class="form-group">
 
         <%= f.label :what_type_of_platform_do_you_require? %><br />
         <% @expertises.select{|x| x.name == "Programming Language"}.first.expertise_detail.each do |expertise| %>
@@ -137,7 +138,7 @@
         <% end %>
 
       </div>
-
+ -->
 
   </div>
 
@@ -164,7 +165,7 @@
         <%= f.label :how_would_you_like_to_pay_your_freelancer %><br />
         <% @payment_types.each do |payment_type| %>
             <%= f.label :payment_type_id, payment_type.name %>
-            <%= f.radio_button :payment_type, payment_type.name %>
+            <%= f.radio_button :payment_type_id, payment_type.id %>
         <% end %>
       </div>
 
@@ -173,7 +174,7 @@
         <%= f.label :how_long_do_you_expect_this_project_to_last_for %><br />
         <% @project_timelines.each do |project_timeline| %>
             <%= f.label :project_timeline_id, project_timeline.name %>
-            <%= f.radio_button :project_timeline, project_timeline.name %>
+            <%= f.radio_button :project_timeline_id, project_timeline.id %>
         <% end %>
       </div>
 

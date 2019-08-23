@@ -18,40 +18,61 @@
 </nav>
 
 </br>
-<div class="row">
 
-    <h1>Welcome to job posting index</h1>
 
-    <% @jobs_posting.each do |jobs_posting| %>
+    <h2>Welcome to job posting index</h2>
+    <br/>
 
-    <h2>
-        Job Post Title: <strong> <%= @job_postings.job_post_title %> </strong>
-    </h2>
+    <% @job_posting.each do |job_post| %>
+
+<div class="row" style="padding-left: 50px;">
+
+    <div class="column">
+
+    <h4>
+        Job Post Title: <strong> <%= job_post.job_post_title %> </strong>
+    </h4>
+
+    <br/>
 
     <p>
       <strong>Job Post Description:</strong>
-      <%= @job_postings.job_description %>
+        </br>
+      <%= job_post.job_description %>
     </p>
+
+    <br/>
 
     <p>
       <strong>Project Start Date:</strong>
-      <%= @job_postings.project_start_date %>
+        </br>
     </p>
+
+    <br/>
 
     <p>
       <strong>Project Type:</strong>
-      <%= @job_postings.project_type_id.name %>
+        </br>
+      <%= job_post.project_type.name %>
     </p>
+
+    <br/>
 
     <p>
       <strong>Job Category:</strong>
-      <%= @job_postings.job_category_id.name %>
+        </br>
+      <%= job_post.job_category.name %>
     </p>
+
+    <br/>
 
     <p>
       <strong>Job post title:</strong>
-      <%= @job_postings.experience_level_hourly_rate_id.name %>
+        </br>
+      <%= job_post.experience_level_hourly_rate.name %>
     </p>
 
-    <% end %>
+    </div>
 </div>
+
+    <% end %>
