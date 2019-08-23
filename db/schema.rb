@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_21_151759) do
+ActiveRecord::Schema.define(version: 2019_08_22_074047) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -130,12 +130,16 @@ ActiveRecord::Schema.define(version: 2019_08_21_151759) do
   end
 
   create_table "save_my_hires", force: :cascade do |t|
-    t.bigint "freelancers_id"
-    t.index ["freelancers_id"], name: "index_save_my_hires_on_freelancers_id"
+    t.bigint "job_posting_id"
+    t.bigint "freelancer_id"
+    t.index ["freelancer_id"], name: "index_save_my_hires_on_freelancer_id"
+    t.index ["job_posting_id"], name: "index_save_my_hires_on_job_posting_id"
   end
 
   create_table "save_my_jobpostings", force: :cascade do |t|
+    t.bigint "freelancer_id"
     t.bigint "job_posting_id"
+    t.index ["freelancer_id"], name: "index_save_my_jobpostings_on_freelancer_id"
     t.index ["job_posting_id"], name: "index_save_my_jobpostings_on_job_posting_id"
   end
 
