@@ -1,23 +1,23 @@
 <!-- INDIVIDUAL FREELANCER PROFILE -->
 
-		<nav class="navbar navbar-light bg-light">
-		  <a class="navbar-brand" href="/">Job Matcher</a>
-		  <form class="form-inline">
-		    <a class="btn btn-outline-primary" href="users/sign_in" role="button">
-		    Log In
-		    </a>
-		    <div style="padding-left: 10px;">
-		      <a class="btn btn-outline-success" href="users/sign_up" role="button">
-		      Sign Up
-		      </a>
-		    </div>
-		    <div style="padding-left: 10px;">
-		      <a class="btn btn-outline-danger" rel="nofollow" data-method="delete" href="users/sign_out" role="button">
-		      Log Out
-		      </a>
-		    </div>
-		  </form>
-		</nav>
+<nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand" href="/">Job Matcher</a>
+  <form class="form-inline">
+    <a class="btn btn-outline-primary" href="users/sign_in" role="button">
+    Log In
+    </a>
+    <div style="padding-left: 10px;">
+      <a class="btn btn-outline-success" href="users/sign_up" role="button">
+      Sign Up
+      </a>
+    </div>
+    <div style="padding-left: 10px;">
+      <a class="btn btn-outline-danger" rel="nofollow" data-method="delete" href="users/sign_out" role="button">
+      Log Out
+      </a>
+    </div>
+  </form>
+</nav>
 
 
 		<div class="container" id="profile_container" >
@@ -36,12 +36,12 @@
 					  <div class="col-sm-8">
 
 								<h3>
-						  		<%= @user.first_name %><span> </span><%= @user.last_name %><br/>
+						  		<%= @name.first_name %><span> </span><%= @name.last_name %><br/>
 								</h3><br/>
 
 						  	<p id="profile_para">
 						  		<strong>Origin |</strong>
-						  		<%= @user.country %><br/>
+						  		<%= @name.country %><br/>
 								</p>
 
 						  	<p id="profile_para">
