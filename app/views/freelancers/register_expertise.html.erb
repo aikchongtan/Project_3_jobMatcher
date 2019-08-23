@@ -1,3 +1,26 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Features</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Pricing</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#">Disabled</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
 <h1>Create Freelance</h1>
 <h3>Register Expertise</h3>
 
@@ -8,12 +31,22 @@
   </p>
 
   <p>
+    <%= form.label :'Describe your expertise' %><br>
+    <%= form.collection_check_boxes :expertise_details_id, @expertise_details, :id, :name %>
+  </p>
+
+
+  <p>
     <%= form.label :'What is your experience level?' %><br>
     <%= form.collection_radio_buttons :experience_level_hourly_rate_id, @experience_levels, :id, :name %>
+  </p>
+
+  <p>
+    <%= form.label :'Prefered payment type?' %><br>
+    <%= form.collection_radio_buttons :payment_type_id, @payment_type, :id, :name %>
   </p>
 
   <p>
     <%= form.submit value="Next"%>
   </p>
 <% end %>
-

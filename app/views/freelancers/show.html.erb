@@ -1,7 +1,61 @@
-<h1>Show Freelance</h1>
+
+<!-- INDIVIDUAL FREELANCER PROFILE -->
+
+<div class="container">
+			<div class="row">
+
+			  <div class="col-sm-4">col-sm-4
+			  		<p> Render profile pic here </p>
+			  </div>
 
 
-<p>
-  <strong>Freelancer prof title:</strong>
-  <%= @freelancer.professional_title %>
-</p>
+			  <div class="col-sm-8">col-sm-8</div>
+
+				  	<p> User - Name </p>
+				  	<p>
+				  		<strong>Professional Title:</strong>
+				  		<%= @freelancer.country_id.name %>
+						</p>
+
+				  	<p>
+				  		<strong>Professional Title:</strong>
+				  		<%= @freelancer.professional_title %>
+						</p>
+
+						 <p>
+				  		<strong>Professional Overview:</strong>
+				  		<%= @freelancer.professional_overview %>
+						</p>
+
+				</div>
+
+				<div class="row">
+
+						<p>
+				  		<strong>Specialisation | </strong>
+				  		<%= @freelancer.job_category_id.name %>
+						</p>
+
+						<p>
+				  		<strong>Available date | </strong>
+				  		<%= @freelancer.start_work_date %>
+						</p>
+
+						<p>
+				  		<strong>Hourly Rates | </strong>
+				  		<%= @freelancer.experience_level_hourly_rate_id.name %>
+				  		<%= @freelancer.experience_level_hourly_rate_id.hourly_rates %>
+						</p>
+
+						<p>
+				  		<strong>Prefered Payment Type | </strong>
+				  		<%= @freelancer.experience_level_hourly_rate_id.name %>
+				  		<%= @freelancer.payment_type_id.name %>
+						</p>
+
+				</div>
+
+			</div>
+
+
+</div>
