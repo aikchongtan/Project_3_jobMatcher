@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   devise_for :users
+
   #root page
   root 'freelancers#register_expertise'
   #http://localhost:3000/freelancers/register_expertise

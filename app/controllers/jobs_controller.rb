@@ -9,7 +9,7 @@ before_action :authenticate_user!, :except => [ :show ]
 
   def show
         #Find job posting by ID.
-        @job_posting = JobPosting.find_by(params[:id])
+        @job_posting = JobPosting.find(params[:id])
   end
 
   def new
@@ -22,6 +22,7 @@ before_action :authenticate_user!, :except => [ :show ]
         @expertise_details = ExpertiseDetail.all
         @payment_types = PaymentType.all
         @project_timelines = ProjectTimeline.all
+        @experience_level_hourly_rates = ExperienceLevelHourlyRate.all
 
   end
 
@@ -40,15 +41,30 @@ before_action :authenticate_user!, :except => [ :show ]
   end
 
   def edit
+
             if !@job_posting.nil?
             @job_posting.update(job_posting_params)
+
+            else
+            @job_posting = JobPosting.find(params[:id])
         end
+
   end
 
   def update
+
+  @job_posting = JobPosting.find(params[:id])
+  @job_posting.update(job_posting_params)
+  redirect_to jobs_path(@jobs)
+
   end
 
   def destroy
+
+      @job_posting = JobPosting.find(params[:id])
+      @job_posting.destroy
+
+      redirect_to jobs_path(@jobs)
   end
 
   private

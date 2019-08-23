@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_23_032633) do
+ActiveRecord::Schema.define(version: 2019_08_23_075926) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -90,9 +90,8 @@ ActiveRecord::Schema.define(version: 2019_08_23_032633) do
   end
 
   create_table "job_postings", force: :cascade do |t|
-    t.string "job_post_title"
+    t.text "job_post_title"
     t.string "job_description"
-    t.date "project_start_date"
     t.bigint "post_visibility_id"
     t.bigint "payment_type_id"
     t.bigint "project_timeline_id"
@@ -101,6 +100,7 @@ ActiveRecord::Schema.define(version: 2019_08_23_032633) do
     t.bigint "no_of_freelancer_id"
     t.bigint "experience_level_hourly_rate_id"
     t.bigint "user_id"
+    t.float "fixed_price"
     t.index ["experience_level_hourly_rate_id"], name: "index_job_postings_on_experience_level_hourly_rate_id"
     t.index ["job_category_id"], name: "index_job_postings_on_job_category_id"
     t.index ["no_of_freelancer_id"], name: "index_job_postings_on_no_of_freelancer_id"

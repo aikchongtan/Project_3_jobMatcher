@@ -1,19 +1,42 @@
 <nav class="navbar navbar-light bg-light">
-  <a class="navbar-brand" href="/">Job Matcher</a>
+  <a class="navbar-brand" href="/">Gig Link</a>
+
   <form class="form-inline">
+    <% if not user_signed_in? %>
     <a class="btn btn-outline-primary" href="users/sign_in" role="button">
     Log In
     </a>
+
     <div style="padding-left: 10px;">
       <a class="btn btn-outline-success" href="users/sign_up" role="button">
       Sign Up
       </a>
     </div>
+
+    <% end %>
+
+    <% if user_signed_in? %>
+
+    <div style="padding-left: 10px;">
+      <a class="btn btn-outline-dark" href="freelancers" role="button">
+      View Freelancers
+      </a>
+    </div>
+
+    <div style="padding-left: 10px;">
+      <a class="btn btn-outline-primary" href="jobs" role="button">
+      View Jobs
+      </a>
+    </div>
+
+
     <div style="padding-left: 10px;">
       <a class="btn btn-outline-danger" rel="nofollow" data-method="delete" href="users/sign_out" role="button">
       Log Out
       </a>
     </div>
+
+    <% end %>
   </form>
 </nav>
 
@@ -119,6 +142,17 @@
         <p>Step 3 of 5</p>
         <input type="hidden" name="job[experience_level_hourly_rate_id]" value="1" />
 
+
+      <div class="form-group">
+        <%= f.label :How_much_experience_do_you_require_your_freelancer_to_have %><br />
+
+        <% @experience_level_hourly_rates.each do |experience_level| %>
+            <%= f.radio_button :experience_level_hourly_rates, experience_level.id %>
+            <%= f.label :experience_level_hourly_rates, experience_level.name %>
+        <% end %>
+      </div>
+
+
 <!--       <div class="form-group">
 
         <%= f.label :what_type_of_platform_do_you_require? %><br />
@@ -187,4 +221,6 @@
   </div>
 
     <% end %>
+
 </div>
+

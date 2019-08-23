@@ -40,21 +40,22 @@
   </form>
 </nav>
 
+
+
+
+
+
 </br>
+<div class="row">
 
+    <div class="row" style="padding-left: 50px;">
 
-    <h2>Welcome to job posting index</h2>
-    <h3>Here are all the current job posts</h3>
-    <br/>
+    <div class="column">
 
-    <% @job_posting.each do |job_post| %>
-
-<div class="row" style="padding-left: 50px;">
-
-    <div class="card">
+    <h1>Here is the job you were looking for</h1>
 
     <h4>
-        Job Post Title: <strong> <%= job_post.job_post_title %> </strong>
+        Job Post Title: <strong> <%= @job_posting.job_post_title %> </strong>
     </h4>
 
     <br/>
@@ -62,7 +63,7 @@
     <p>
       <strong>Job Post Description:</strong>
         </br>
-      <%= job_post.job_description %>
+      <%= @job_posting.job_description %>
     </p>
 
     <br/>
@@ -70,7 +71,7 @@
     <p>
       <strong>Required role: </strong>
         </br>
-      <%= job_post.job_category.name %>
+      <%= @job_posting.job_category.name %>
     </p>
 
 
@@ -78,6 +79,7 @@
 
     <p>
       <strong>Project Start Date:</strong>
+      <% @job_posting.project_timeline.name %>
         </br>
     </p>
 
@@ -86,7 +88,7 @@
     <p>
       <strong>Project Type:</strong>
         </br>
-      <%= job_post.project_type.name %>
+      <%= @job_posting.project_type.name %>
     </p>
 
     <br/>
@@ -94,7 +96,15 @@
     <p>
       <strong>Preferred Experience level:</strong>
         </br>
-      <%= job_post.experience_level_hourly_rate.name %>
+      <%= @job_posting.experience_level_hourly_rate.name %>
+    </p>
+
+    </br>
+
+    <p>
+      <strong>Payment type:</strong>
+        </br>
+      <%= @job_posting.payment_type.name %>
     </p>
 
     </br>
@@ -102,12 +112,18 @@
     <p>
       <strong>Hourly Rate:</strong>
         </br>
-      <%= job_post.experience_level_hourly_rate.hourly_rates %>
+      <%= @job_posting.experience_level_hourly_rate.hourly_rates %>
     </p>
+
+        </br>
+
+    <%= link_to 'Delete Post', job_path(@job_posting),
+        method: :delete,
+        data: { confirm: 'Are you sure?' } %>
+
+    </br>
+
+    <%= link_to 'Edit Post', edit_job_url(@job_posting) %>
 
     </div>
 </div>
-
-    <% end %>
-
-    <%= link_to 'Post a new job', jobs_post_path(@job_posting) %>
