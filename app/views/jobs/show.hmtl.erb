@@ -53,5 +53,15 @@
       <%= @job_postings.experience_level_hourly_rate_id.name %>
     </p>
 
+   <%= link_to 'Delete Profile', freelancer_path(@freelancer),
+        method: :delete,
+        data: { confirm: 'Are you sure?' } %>
+
+    </br>
+
+    <%= link_to 'Edit Post', edit_freelancer_url(@freelancer) %>
+
+    </div>
+
     <% end %>
 </div>

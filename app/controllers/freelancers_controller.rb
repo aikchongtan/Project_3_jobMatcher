@@ -2,8 +2,11 @@ class FreelancersController < ApplicationController
 
 
     def show
-      @freelancer = Freelancer.find(params[:user_id])
-
+        @freelancer = Freelancer.find(params[:user_id])
+        @category = JobCategory.find(@freelancer.job_category_id)
+        @experience = ExperienceLevelHourlyRate.find(@freelancer.experience_level_hourly_rate_id)
+        @payment = PaymentType.find(@freelancer.payment_type_id)
+        @user = current_user
     end
 
     def register_expertise
@@ -52,10 +55,10 @@ class FreelancersController < ApplicationController
         redirect_to freelancer_register_expertise_path
     end
 
-
-
     def edit
+
     end
+
     def create
 
       @freelancers = JobCategory.new(name: params[:freelancers])
