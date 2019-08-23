@@ -1,5 +1,11 @@
 class FreelancersController < ApplicationController
 
+    def index
+
+       @freelancer = Freelancer.all
+       @user = current_user
+
+    end
 
     def show
         @freelancer = Freelancer.find(params[:user_id])

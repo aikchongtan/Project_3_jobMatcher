@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   #root page
   root 'homes#index'
 
+  get '/freelancers/index' => 'freelancers#index', as: 'freelancers_index'
   get '/freelancers/:user_id/register_expertise' => 'freelancers#register_expertise', as: 'freelancer_register_expertise'
   post '/freelancers/:user_id/freelancer_create_expertise' => 'freelancers#create_expertise', as: 'freelancer_create_expertise'
   get '/freelancers/:user_id/register_profile' => 'freelancers#register_profile', as: 'freelancer_register_profile'
