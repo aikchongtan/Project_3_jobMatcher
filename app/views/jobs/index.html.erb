@@ -1,57 +1,46 @@
-<nav class="navbar navbar-light bg-light">
-  <a class="navbar-brand" href="/">Job Matcher</a>
-  <form class="form-inline">
-    <a class="btn btn-outline-primary" href="users/sign_in" role="button">
-    Log In
-    </a>
-    <div style="padding-left: 10px;">
-      <a class="btn btn-outline-success" href="users/sign_up" role="button">
-      Sign Up
-      </a>
-    </div>
-    <div style="padding-left: 10px;">
-      <a class="btn btn-outline-danger" rel="nofollow" data-method="delete" href="users/sign_out" role="button">
-      Log Out
-      </a>
-    </div>
-  </form>
-</nav>
+<div class="container">
 
-</br>
+    </br>
+        <div style= 'text-align: center'><h2>Available jobs @ Gig-Link</h2></div>
+
+        <div class="div-center-button">
+        <a class="btn btn-warning btn-lg" href="" role="button"><strong>POST A NEW JOB</strong></a>
+                    <%= link_to 'Post a new job', jobs_post_path(@job_posting) %>
+        </div>
+
 <div class="row">
+        <div class="col-2"></div>
+    <div class="col-8">
 
-    <h1>Welcome to job posting index</h1>
+    <% @job_posting.each do |job_post| %>
 
-    <% @jobs_posting.each do |jobs_posting| %>
+    <div class="card">
+  <h5 class="card-header"> Required role: <%= job_post.job_category.name %> </h5>
 
-    <h2>
-        Job Post Title: <strong> <%= @job_postings.job_post_title %> </strong>
-    </h2>
+  <div class="card-body">
+    <h3 class="card-title"> <strong> <%= job_post.job_post_title %> </strong> </h3>
 
-    <p>
-      <strong>Job Post Description:</strong>
-      <%= @job_postings.job_description %>
-    </p>
+        <p class="card-text"> <%= job_post.job_description %> </p>
 
-    <p>
-      <strong>Project Start Date:</strong>
-      <%= @job_postings.project_start_date %>
-    </p>
+        <p class="card-text"> Expertise details here</p>
 
-    <p>
-      <strong>Project Type:</strong>
-      <%= @job_postings.project_type_id.name %>
-    </p>
 
-    <p>
-      <strong>Job Category:</strong>
-      <%= @job_postings.job_category_id.name %>
-    </p>
+        <p class="card-text"> <strong>Project timeline:</strong> <%= job_post.project_timeline.name %> </p>
+        <p class="card-text"> <strong> Project Type:</strong> <%= job_post.project_type.name %> </p>
+        <p class="card-text"> <strong>Preferred Experience level:</strong> <%= job_post.experience_level_hourly_rate.name %> </p>
+        <p class="card-text"> <strong>Hourly Rate:</strong> <%= job_post.experience_level_hourly_rate.hourly_rates %> </p>
 
-    <p>
-      <strong>Job post title:</strong>
-      <%= @job_postings.experience_level_hourly_rate_id.name %>
-    </p>
+            <a href="#" class="btn btn-success"><strong>Apply for job</strong></a>
+            <a href="#" class="btn btn-info"><strong>More info</strong></a>
+            <a href="#" class="btn btn-danger"><strong>Save job</strong></a>
+  </div>
+    </div>
+        <% end %>
 
-    <% end %>
-</div>
+    </div>
+    </div>
+
+    <div class="col-2"></div>
+    </div>
+
+   </div>

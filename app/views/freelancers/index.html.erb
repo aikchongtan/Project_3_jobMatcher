@@ -1,31 +1,72 @@
+
 <nav class="navbar navbar-light bg-light">
-  <a class="navbar-brand" href="/">Job Matcher</a>
+  <a class="navbar-brand" href="/">Gig Link</a>
+
   <form class="form-inline">
+    <% if not user_signed_in? %>
     <a class="btn btn-outline-primary" href="users/sign_in" role="button">
     Log In
     </a>
+
     <div style="padding-left: 10px;">
       <a class="btn btn-outline-success" href="users/sign_up" role="button">
       Sign Up
       </a>
     </div>
+
+    <% end %>
+
+    <% if user_signed_in? %>
+
+    <div style="padding-left: 10px;">
+      <a class="btn btn-outline-dark" href="freelancers" role="button">
+      View Freelancers
+      </a>
+    </div>
+
+    <div style="padding-left: 10px;">
+      <a class="btn btn-outline-primary" href="jobs" role="button">
+      View Jobs
+      </a>
+    </div>
+
+
     <div style="padding-left: 10px;">
       <a class="btn btn-outline-danger" rel="nofollow" data-method="delete" href="users/sign_out" role="button">
       Log Out
       </a>
     </div>
+
+    <% end %>
   </form>
 </nav>
 
-<h1>Welcome to freelancers index</h1>
 
 
+<div class="container">
 
-<div class="card">
-  <h5 class="card-header">name</h5>
-  <div class="card-body">
-    <h5 class="card-title">Special title treatment</h5>
-    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-    <a href="#" class="btn btn-primary">View full profile</a>
-  </div>
+</br>
+   <div style= 'text-align: center'><h2>Available Freelancers @ Gig-Link</h2></div>
+
+   <% @freelancer.each do |freelancer| %>
+
+			<div class="card">
+
+			 <h5 class="card-header">
+
+					<%= @freelancer.first_name %><span> </span><%= @freelancer.last_name %>
+
+			 </h5>
+
+			  <div class="card-body">
+			    <h5 class="card-title"> <%= @category.name %> </h5>
+			    <p class="card-text"><%= @freelancer.start_work_date %></p>
+			    <p class="card-text"><%= @freelancer.professional_title %></p>
+			    <p class="card-text"><%= @freelancer.name %></p>
+			    <p class="card-text"><%= @freelancer.hourly_rates %></p>
+
+			    <a href="freelancer/:id" class="btn btn-primary">View full profile</a>
+			  </div>
+			</div>
+
 </div>
