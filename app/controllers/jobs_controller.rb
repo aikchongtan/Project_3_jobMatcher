@@ -47,15 +47,25 @@ before_action :authenticate_user!, :except => [ :show ]
 
             else
             @job_posting = JobPosting.find(params[:id])
+            @job_categories = JobCategory.all
+            @project_types = ProjectType.all
+            @post_visibilities = PostVisibility.all
+            @no_of_freelancers = NoOfFreelancer.all
+            @expertises =  Expertise.all
+            @expertise_details = ExpertiseDetail.all
+            @payment_types = PaymentType.all
+            @project_timelines = ProjectTimeline.all
+            @experience_level_hourly_rates = ExperienceLevelHourlyRate.all
+
         end
 
   end
 
   def update
 
-  @job_posting = JobPosting.find(params[:id])
-  @job_posting.update(job_posting_params)
-  redirect_to jobs_path(@jobs)
+      @job_posting = JobPosting.find(params[:id])
+      @job_posting.update(job_posting_params)
+      redirect_to jobs_path(@jobs)
 
   end
 

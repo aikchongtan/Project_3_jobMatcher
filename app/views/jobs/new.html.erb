@@ -1,57 +1,16 @@
-<nav class="navbar navbar-light bg-light">
-  <a class="navbar-brand" href="/">Gig Link</a>
-
-  <form class="form-inline">
-    <% if not user_signed_in? %>
-    <a class="btn btn-outline-primary" href="users/sign_in" role="button">
-    Log In
-    </a>
-
-    <div style="padding-left: 10px;">
-      <a class="btn btn-outline-success" href="users/sign_up" role="button">
-      Sign Up
-      </a>
-    </div>
-
-    <% end %>
-
-    <% if user_signed_in? %>
-
-    <div style="padding-left: 10px;">
-      <a class="btn btn-outline-dark" href="freelancers" role="button">
-      View Freelancers
-      </a>
-    </div>
-
-    <div style="padding-left: 10px;">
-      <a class="btn btn-outline-primary" href="jobs" role="button">
-      View Jobs
-      </a>
-    </div>
-
-
-    <div style="padding-left: 10px;">
-      <a class="btn btn-outline-danger" rel="nofollow" data-method="delete" href="users/sign_out" role="button">
-      Log Out
-      </a>
-    </div>
-
-    <% end %>
-  </form>
-</nav>
-
-</br>
 <div class="row">
 
   <div class="col-4">
         <ul style="list-style-type:circle;">
-            <li><strong>Job Description</strong></li>
-            <li>Details</li>
-            <li>Expertise</li>
-            <li>Budget</li>
+            <li style="color: #1F8496"><strong>Job Description &#10063</strong></li>
+            <li>Details &#10063</li>
+            <li>Expertise &#10063</li>
+            <li>Budget &#10063</li>
+
+
   </div>
 
-  <div class="col-8">
+  <div class="col-6">
     <%= form_with scope: :job, url: jobs_path, local: true do |f| %>
 
         <h2>Getting Started</h2>
@@ -81,14 +40,14 @@
 <div class="row">
 
   <div class="col-4">
-        <ul style="list-style-type:circle;">
-            <li>Job Description</li>
-            <li><strong>Details</strong></li>
-            <li>Expertise</li>
-            <li>Budget</li>
+        <ul>
+            <li>Job Description &#10004;</li>
+            <li style="color: #1F8496"><strong>Details &#10063</strong></li>
+            <li>Expertise &#10063</li>
+            <li>Budget &#10063</li>
   </div>
 
-  <div class="col-8">
+  <div class="col-6">
 
         <h2>Details</h2>
         <p>Step 2 of 5</p>
@@ -130,13 +89,13 @@
 
   <div class="col-4">
         <ul style="list-style-type:circle;">
-            <li>Job Description</li>
-            <li>Details</li>
-            <li><strong>Expertise</strong></li>
-            <li>Budget</li>
+            <li>Job Description &#10004;</li>
+            <li>Details &#10004;</li>
+            <li style="color: #1F8496"><strong>Expertise &#10063</strong></li>
+            <li>Budget &#10063</li>
   </div>
 
-  <div class="col-8">
+  <div class="col-6">
 
         <h2>Experience</h2>
         <p>Step 3 of 5</p>
@@ -153,13 +112,16 @@
       </div>
 
 
-<!--       <div class="form-group">
+<!--  there is an error with this part of the form. Im cant make it a checkbox as requires 4-6 params instead of the 2. Since the details are drawn from the same table. Its a little hard for me to split them apart. -->
+
+      <div class="form-group">
 
         <%= f.label :what_type_of_platform_do_you_require? %><br />
         <% @expertises.select{|x| x.name == "Programming Language"}.first.expertise_detail.each do |expertise| %>
             <%= f.label :expertise_id, expertise.name %>
             <%= f.radio_button :expertise_id, expertise.name %>
         <% end %>
+
 
       </div>
 
@@ -172,7 +134,7 @@
         <% end %>
 
       </div>
- -->
+
 
   </div>
 
@@ -183,13 +145,13 @@
 
   <div class="col-4">
         <ul style="list-style-type:circle;">
-            <li>Job Description</li>
-            <li>Details</li>
-            <li>Expertise</li>
-            <li><strong>Budget</strong></li>
+            <li>Job Description &#10004;</li>
+            <li>Details &#10004;</li>
+            <li>Expertise &#10004;</li>
+            <li style="color: #1F8496"><strong>Budget &#10063</strong></li>
   </div>
 
-  <div class="col-8">
+  <div class="col-5">
 
         <h2>Budget</h2>
         <p>Step 4 of 5</p>
@@ -214,13 +176,17 @@
 
 <br/>
 
-            <%= button_tag(type: 'submit', class: "btn btn-primary") do %>
+            <%= button_tag(type: 'submit', class: "btn btn-success btn-block") do %>
              <i class="icon-ok icon-white"></i> Save Job
             <% end %>
 
   </div>
+    <div class="col-2"></div>
+    </div>
 
     <% end %>
 
+</br>
 </div>
+</br>
 
