@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get '/freelancers/:user_id' => 'freelancers#show' , as: 'freelancer'
 
 
+
   get '/jobs' => 'jobs#index', as: 'jobs'
   get '/jobs/new' => 'jobs#new', as: 'jobs_post'
   post '/jobs' => 'jobs#create'
