@@ -12,7 +12,9 @@ class FreelancersController < ApplicationController
         @category = JobCategory.find(@freelancer.job_category_id)
         @experience = ExperienceLevelHourlyRate.find(@freelancer.experience_level_hourly_rate_id)
         @payment = PaymentType.find(@freelancer.payment_type_id)
-        @name = User.find(@freelancer.user_id)
+        @firstname = User.find(params[:user_id]).first_name
+        @lastname = User.find(params[:user_id]).last_name
+        @country = User.find(params[:user_id]).country
     end
 
     def register_expertise

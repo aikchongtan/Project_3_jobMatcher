@@ -35,7 +35,8 @@
 						<p> Let's get started! </p>
 
 							<% if user_signed_in? %>
-								<a href="/freelancers/<%= current_user.id %>/register_profile" class="btn btn-info btn-lg active" role="button" aria-pressed="true">Freelance</a>
+								<a href="/freelancers/<%= current_user.id %>" class="btn btn-info btn-lg active" role="button" aria-pressed="true">Freelancers</a>
+								<a href="/jobs" class="btn btn-info btn-lg active" role="button" aria-pressed="true">Jobs</a>
 							<% else %>
 								<a href="users/sign_in" class="btn btn-info btn-lg active" role="button" aria-pressed="true">Login</a>
 								<a href="users/sign_up" class="btn btn-info btn-lg active" role="button" aria-pressed="true">Sign Up</a>
