@@ -1,21 +1,43 @@
-<!-- INDIVIDUAL FREELANCER PROFILE -->
 
 <nav class="navbar navbar-light bg-light">
-  <a class="navbar-brand" href="/">Job Matcher</a>
+  <a class="navbar-brand" href="/">Gig Link</a>
+
   <form class="form-inline">
+    <% if not user_signed_in? %>
     <a class="btn btn-outline-primary" href="users/sign_in" role="button">
     Log In
     </a>
+
     <div style="padding-left: 10px;">
       <a class="btn btn-outline-success" href="users/sign_up" role="button">
       Sign Up
       </a>
     </div>
+
+    <% end %>
+
+    <% if user_signed_in? %>
+
+    <div style="padding-left: 10px;">
+      <a class="btn btn-outline-dark" href="freelancers" role="button">
+      View Freelancers
+      </a>
+    </div>
+
+    <div style="padding-left: 10px;">
+      <a class="btn btn-outline-primary" href="jobs" role="button">
+      View Jobs
+      </a>
+    </div>
+
+
     <div style="padding-left: 10px;">
       <a class="btn btn-outline-danger" rel="nofollow" data-method="delete" href="users/sign_out" role="button">
       Log Out
       </a>
     </div>
+
+    <% end %>
   </form>
 </nav>
 
