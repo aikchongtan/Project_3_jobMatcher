@@ -1,38 +1,21 @@
 
-
-
-<nav class="navbar navbar-light bg-light">
-  <a class="navbar-brand" href="/">Job Matcher</a>
-  <form class="form-inline">
-    <a class="btn btn-outline-primary" href="users/sign_in" role="button">
-    Log In
-    </a>
-    <div style="padding-left: 10px;">
-      <a class="btn btn-outline-success" href="users/sign_up" role="button">
-      Sign Up
-      </a>
-    </div>
-    <div style="padding-left: 10px;">
-      <a class="btn btn-outline-danger" rel="nofollow" data-method="delete" href="users/sign_out" role="button">
-      Log Out
-      </a>
-    </div>
-  </form>
-</nav>
-
-
 <div class ="container">
 
 	<div class="row">
 
 		<div class="col-4">
 			<ul style="list-style-type:circle;">
-					<li><strong>Basic Profile</strong></li>
-					<li>Expertise</li>
+			<li style="color: #1F8496">
+					<li><strong>Basic Profile &#10063</strong></li>
+					<li>Expertise &#10063</li>
 			</ul>
 		</div>
 
 		<div class="col-8">
+
+			<h2>Profile</h2>
+    	<p>Step 1 of 2</p>
+
 						<%= form_with scope: :freelancer, url: freelancer_create_profile_path, local: true do |form| %>
 
 						  <p>
@@ -56,8 +39,12 @@
 						  </p>
 
 						  <p>
-						    <%= form.submit value="Submit"%>
+
+						  	<%= button_tag(type: 'submit', class: "btn btn-success btn-block") do %>
+             		<i class="icon-ok icon-white"></i> Submit
+            		<% end %>
 						    <%= link_to 'Back', freelancer_register_expertise_path %>
+
 						  </p>
 		</div>
 	</div>
