@@ -1,2 +1,4 @@
-class Project_timeline < ActiveRecord::Base
+class ProjectTimeline < ActiveRecord::Base
+    has_many :job_posting
+
 end

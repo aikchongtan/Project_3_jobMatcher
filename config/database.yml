@@ -23,7 +23,7 @@ default: &default
 
 development:
   <<: *default
-  database: jobmatcher_development
+  database: jobalign_development
   host : localhost
   user: ghostshiphost
   password: Laser123
@@ -60,7 +60,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: jobmatcher_test
+  database: jobalign_test
   host : localhost
   user: ghostshiphost
   password: Laser123
@@ -86,7 +86,6 @@ test:
 #
 production:
   <<: *default
-  database: jobmatcher_production
-  host : localhost
-  user: ghostshiphost
-  password: Laser123
+  database: WDInstagram_rails_production
+  username: WDInstagram_rails
+  password: <%= ENV['WDINSTAGRAM_RAILS_DATABASE_PASSWORD'] %>
