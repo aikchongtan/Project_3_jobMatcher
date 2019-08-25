@@ -1,6 +1,13 @@
 class Freelancer < ActiveRecord::Base
-    has_many :job_category
-    has_many :experience_level_hourly_rate
-    has_many :payment_type
-    has_many :country
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable
+
+
+  has_many :job_match
+  belongs_to :experience_level_hourly_rate, optional: true
+  belongs_to :job_category
+  has_and_belongs_to_many  :save_freelancer_buckets
+
 end

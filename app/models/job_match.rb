@@ -1,3 +1,6 @@
-class Job_match < ActiveRecord::Base
-    has_many :job_posting
+class JobMatch < ActiveRecord::Base
+    belongs_to :freelancer
+    belongs_to :hirer
+    belongs_to :job_posting
+
 end
