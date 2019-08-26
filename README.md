@@ -4,7 +4,9 @@
 
 First we came up with a few problem statements, derive the needs and the wants for each idea. Which was 
 And testing project feasibility with the idea with user personas and user-flow.
+
 We decided on our project GIG-LINK as we felt that there was a greater demand for a product that offers a networking platform between hirers and freelancers.
+
 We split our group roles based on its features. Them mainly being the 2 main personas, hirers and freelancers on how they interact with our app and one managing the backend-development, the models and databases.
 
 3. Installation instructions for any dependencies
@@ -20,7 +22,7 @@ Gig link aims to bring freelancers and professionals who are looking for them in
 
 
 5. Link to your wireframes – sketches of major views / interfaces in your application
-[Nicholas]
+Hirer/Job-posting wireframes: https://imgur.com/a/H0J9kTA
 
 
 6. Descriptions of any unsolved problems or major hurdles your team had to overcome
