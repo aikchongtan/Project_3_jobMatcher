@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_21_151759) do
+ActiveRecord::Schema.define(version: 2019_08_25_153010) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,10 +55,37 @@ ActiveRecord::Schema.define(version: 2019_08_21_151759) do
     t.bigint "experience_level_hourly_rate_id"
     t.bigint "payment_type_id"
     t.bigint "country_id"
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.float "hourly_rate"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "country"
+    t.string "highest_education"
     t.index ["country_id"], name: "index_freelancers_on_country_id"
+    t.index ["email"], name: "index_freelancers_on_email", unique: true
     t.index ["experience_level_hourly_rate_id"], name: "index_freelancers_on_experience_level_hourly_rate_id"
     t.index ["job_category_id"], name: "index_freelancers_on_job_category_id"
     t.index ["payment_type_id"], name: "index_freelancers_on_payment_type_id"
+    t.index ["reset_password_token"], name: "index_freelancers_on_reset_password_token", unique: true
+  end
+
+  create_table "hirers", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.string "country"
+    t.index ["email"], name: "index_hirers_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_hirers_on_reset_password_token", unique: true
   end
 
   create_table "job_categories", force: :cascade do |t|
@@ -79,6 +106,11 @@ ActiveRecord::Schema.define(version: 2019_08_21_151759) do
     t.bigint "job_posting_id"
     t.string "requester_type"
     t.integer "approval_status"
+    t.integer "freelancer_id"
+    t.integer "hirer_id"
+    t.float "gross_amount"
+    t.float "service_fee"
+    t.float "net_amount"
     t.index ["job_posting_id"], name: "index_job_matches_on_job_posting_id"
   end
 
@@ -100,7 +132,10 @@ ActiveRecord::Schema.define(version: 2019_08_21_151759) do
     t.bigint "job_category_id"
     t.bigint "no_of_freelancer_id"
     t.bigint "experience_level_hourly_rate_id"
+    t.bigint "hirer_id"
+    t.float "fixed_price"
     t.index ["experience_level_hourly_rate_id"], name: "index_job_postings_on_experience_level_hourly_rate_id"
+    t.index ["hirer_id"], name: "index_job_postings_on_hirer_id"
     t.index ["job_category_id"], name: "index_job_postings_on_job_category_id"
     t.index ["no_of_freelancer_id"], name: "index_job_postings_on_no_of_freelancer_id"
     t.index ["payment_type_id"], name: "index_job_postings_on_payment_type_id"
@@ -129,14 +164,40 @@ ActiveRecord::Schema.define(version: 2019_08_21_151759) do
     t.string "name"
   end
 
-  create_table "save_my_hires", force: :cascade do |t|
-    t.bigint "freelancers_id"
-    t.index ["freelancers_id"], name: "index_save_my_hires_on_freelancers_id"
+  create_table "save_freelancer_buckets", force: :cascade do |t|
+    t.bigint "freelancer_id"
+    t.bigint "hirer_id"
+    t.index ["freelancer_id"], name: "index_save_freelancer_buckets_on_freelancer_id"
+    t.index ["hirer_id"], name: "index_save_freelancer_buckets_on_hirer_id"
   end
 
-  create_table "save_my_jobpostings", force: :cascade do |t|
+  create_table "save_freelancer_candidates", force: :cascade do |t|
+    t.bigint "freelancer_id"
+    t.bigint "hirer_id"
+    t.index ["freelancer_id"], name: "index_save_freelancer_candidates_on_freelancer_id"
+    t.index ["hirer_id"], name: "index_save_freelancer_candidates_on_hirer_id"
+  end
+
+  create_table "save_job_buckets", force: :cascade do |t|
+    t.bigint "freelancer_id"
     t.bigint "job_posting_id"
-    t.index ["job_posting_id"], name: "index_save_my_jobpostings_on_job_posting_id"
+    t.index ["freelancer_id"], name: "index_save_job_buckets_on_freelancer_id"
+    t.index ["job_posting_id"], name: "index_save_job_buckets_on_job_posting_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.string "country_select"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
 end
