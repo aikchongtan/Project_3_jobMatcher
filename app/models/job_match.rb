@@ -1,6 +1,6 @@
 class JobMatch < ActiveRecord::Base
-    belongs_to :freelancer
-    belongs_to :hirer
-    belongs_to :job_posting
+    belongs_to :freelancer, optional: true
+    belongs_to :hirer, optional: true
+    belongs_to :job_posting, optional: true
 
 end

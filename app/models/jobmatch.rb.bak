@@ -1,3 +1,0 @@
-class Jobmatch < ActiveRecord::Base
-    belongs_to :freelancer
-end

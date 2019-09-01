@@ -1,4 +1,4 @@
-class SaveJobBucket1 < ActiveRecord::Migration[5.2]
+class SaveJobBuckets < ActiveRecord::Migration[5.2]
   def change
     create_table :save_job_buckets do |t|
       t.references :freelancer

@@ -11,8 +11,8 @@ class JobPostings < ActiveRecord::Migration[5.2]
       t.references :job_category
       t.references :no_of_freelancer
       t.references :experience_level_hourly_rate
-	  t.references :hirer
-	  t.float :fixed_price
+	    t.references :hirer
+	    t.float :fixed_price
     end
   end
 end
