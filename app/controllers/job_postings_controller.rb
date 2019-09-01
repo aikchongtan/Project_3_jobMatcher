@@ -32,7 +32,7 @@ class JobPostingsController < ApplicationController
         def create
               #Create a new job posting.
               # @job_posting = JobPosting.find_by(current_user.id)
-      
+                print "save posting"
                   @job_posting = JobPosting.new(job_posting_params)
       
                   @job_posting.hirer_id = current_hirer.id

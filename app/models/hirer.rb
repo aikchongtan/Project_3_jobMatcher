@@ -6,5 +6,5 @@ class Hirer < ApplicationRecord
   
          has_many :job_match
          has_many :job_posting
-         belongs_to :save_freelancer_candidate;
+         belongs_to :save_freelancer_candidate, optional: true
 end

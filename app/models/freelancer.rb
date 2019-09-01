@@ -7,7 +7,7 @@ class Freelancer < ActiveRecord::Base
 
   has_many :job_match
   belongs_to :experience_level_hourly_rate, optional: true
-  belongs_to :job_category
-  has_and_belongs_to_many  :save_freelancer_buckets
+  belongs_to :job_category, optional: true
+  has_and_belongs_to_many  :save_freelancer_buckets, optional: true
 
 end
